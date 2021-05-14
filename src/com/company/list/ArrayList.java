@@ -4,7 +4,7 @@ public class ArrayList<T> implements List<T> {
 
     private Object array[] = new Object[2];
     ;
-    private int size;
+    private int size=0;
 
     @Override
     public void add(T data) {
