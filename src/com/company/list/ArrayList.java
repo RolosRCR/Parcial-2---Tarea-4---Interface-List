@@ -9,12 +9,10 @@ public class ArrayList<T> implements List<T> {
     @Override
     public void add(T data) {
         if (size == array.length) {
-            Object aux[] = new Object[array.length + 2];
-
+            Object aux[] = new Object[array.length * 2];
             for (int i = 0; i < array.length; i++) {
                 aux[i] = array[i];
             }
-
             this.array = new Object[aux.length];
 
             for (int i = 0; i < array.length; i++) {
@@ -32,29 +30,20 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public T get(int index) {
+        if(index>=size||index<0){
+            throw new MyIndexOutOfBoundsException();
+        }
         return (T) array[index];
     }
 
     @Override
     public void delete(int index) {
-
-        int position = 0;
-        int currentIndex = 0;
-
-        if (index < 0 || index >= size || size == 0) {
-            return;
-        }
-
-        if (index > 0 && index < size) {
-            while (position < index) {
-                position = position + 1;
-                array[currentIndex] = array[currentIndex + 1];
-                currentIndex++;
+        if(array.length-(index+1)>=0){
+        for (int i=index+1;i<array.length;i++){
+        this.array[i-1]=this.array[i];
+        }}else{
+            throw new MyIndexOutOfBoundsException();
             }
-            if (index < 0 || index >= size) {
-                return;
-            }
-        }
         size--;
     }
 

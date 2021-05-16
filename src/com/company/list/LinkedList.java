@@ -60,7 +60,7 @@ public class LinkedList<T> implements List<T> {
         int currentIndex = 0;
 
         if (index < 0 || index >= size) {
-            return;
+            throw new MyIndexOutOfBoundsException();
         }
 
         size--;
@@ -102,8 +102,6 @@ public class LinkedList<T> implements List<T> {
             currentNode.next = newNode;
             if (newNode.next != null) {
                 newNode.next.previous = newNode;
-            } else {
-                tail = newNode;
             }
         } else if (position == BEFORE) {
             newNode.previous = currentNode.previous;

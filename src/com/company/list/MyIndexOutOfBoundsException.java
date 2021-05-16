@@ -1,4 +1,4 @@
-package com.company.list.Exceptions.ArrayListExceptions;
+package com.company.list;
 
 public class MyIndexOutOfBoundsException extends RuntimeException{
 
